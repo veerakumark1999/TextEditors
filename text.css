@@ -1,0 +1,227 @@
+html,
+body {
+    height: 100%;
+    background: rgb(243, 235, 235);
+}
+.navbar{
+  margin-top: 0%;
+  margin-left: 0%;
+  font-size: 40px;
+  box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+  font-family:  ui-serif; 
+  background-color: #17A2B8;
+  display:flex ;
+  
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+ 
+ color: white;
+}
+
+.text_box {
+    width: 50%;
+    height: 70;
+    border: 3px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+.form-control{
+  background-color: #555f3854;
+  padding: 2%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#container{
+    width: 100%;
+    height: 65%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin: 0 auto;
+}
+
+#undo{
+    align-items: left;
+    margin:auto;
+    display:block;
+}
+#redo{
+  align-items:left;
+  margin: auto;
+  display: block;
+}
+
+#clear{
+    margin:auto;
+    display:block;
+}
+
+.btn {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+  }
+  
+  .btn:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 500%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowingbn5 50s infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowingbn5 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  .btn:active {
+    color: rgba(61, 61, 61, 0.744);
+  }
+  
+  .btn:active:after {
+    background: transparent;
+  }
+  
+  .btn:hover:before {
+    opacity: 1;
+  }
+  
+  .btn:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #17A2B8;
+    left: 3px;
+    top: 3px;
+    right: 3px;
+    border-radius: 10px;
+  }
+
+  .wrapper{
+    width: 550px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 30px 25px 40px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+  }
+  .wrapper :where(textarea, input, select, button){
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    border-radius: 5px;
+  }
+  .wrapper :where(textarea, input)::placeholder{
+    color: #aaa;
+  }
+  .wrapper :where(textarea, input):focus{
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+  }
+  .wrapper textarea{
+    height: 270px;
+    resize: none;
+    padding: 8px 13px;
+    font-size: 17.6px;
+    border: 1px solid #ccc;
+  }
+  .wrapper .file-options{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .file-options .option{
+    width: calc(100% / 2 - 8px);
+  }
+  .option label{
+    font-size: 17px;
+    padding-top: 23px;
+    color: #17A2B8;
+  }
+  .option :where(input, .select-menu){
+    height: 50px;
+    padding: 0 13px;
+    margin-top: 6px;
+    border-radius: 5px;
+    border: 1px solid #bfbfbf;
+  }
+  .option .select-menu select{
+    height: 50px;
+    color: #17A2B8;
+    background: none;
+  }
+  .wrapper .save-btn{
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 16px 0;
+    margin-top: 20px;
+    pointer-events: none;
+    background: #17A2B8;
+  }
+  .save-btn:hover{
+    background: #148c9f;
+  }
+  textarea:valid ~ .save-btn{
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+  }
+  @media screen and (max-width: 475px) {
+    .wrapper{
+      padding: 25px 18px 30px;
+    }
+    .wrapper :where(textarea, input, select, button, label){
+      font-size: 16px!important;
+    }
+    .file-options .option{
+      width: calc(100% / 2 - 5px);
+    }
+    .option :where(input, .select-menu){
+      padding: 0 10px;
+    }
+    .wrapper .save-btn{
+      padding: 15px 0;
+    }
+  }
